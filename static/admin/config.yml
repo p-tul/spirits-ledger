@@ -4,12 +4,185 @@ backend:
 media_folder: static/assets
 public_folder: assets
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
+
+
+  # DISTILLERIES
+  - name: distilleries
+    label: Distilleries
+    folder: distilleries
     create: true
-    fields: 
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: datetime }
-      - { name: title, label: Title }
+    fields:
+      - { name: path, label: Path, hint: "/distilleries/<name-of-distillery>" }
+      - { name: published, label: Published, widget: boolean, default: false, hint: "When set to FALSE, the distillery wont be shown on the website."}
+      - { name: name, label: Name }
+
+      # Basic Info
+      - label: Basic Info
+        name: basicInfo
+        widget: object
+        fields:
+          - { name: logo, label: Logo, widget: image, allow_multiple: false, required: false}
+          - { name: featuredImage, label: Featured Image, widget: image, allow_multiple: false, required: false }
+          # - { name: products, label: Products, widget: relation, required: false }
+          - { name: spiritCatagories, label: Spirit Catagories, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other"], multiple: true, required: false }
+          - { name: dateFounded, label: Date Founded, widget: datetime, default: "", dateFormat: "MM, YYYY", timeFormat: false, required: false }
+          - { name: owner, label: Owner, required: false }
+          - { name: headDistiller, label: Head Distiller, required: false }
+          - { name: status, label: Status, widget: select, options: [{label: Open, value: open}, {label: Closed, value: closed}, {label: Under Construction, value: underConstruction}], hint: "Open, Closed or Under Construction", required: false }
+      
+      # Contact
+      - label: Contact
+        name: contact
+        widget: object
+        fields:
+          - { name: phone, label: Phone Number, required: false }
+          - { name: websiteURL, label: Website URL, required: false }
+          - { name: email, label: Email Address, required: false }
+          # - { name: address, label: Address, widget: text, required: false }
+          - { name: streetAddress, label: Street Address, required: false }
+          - { name: suburb, label: Suburb, required: false }
+          - { name: postCode, label: Post Code, required: false }
+          - { name: state, label: State, widget: select, options: ["ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA"], required: true }
+          # - { name: country, label: Country, required: false }
+          - { name: mapLocation, label: Map Location, widget: map, required: false }
+
+      # Tours & Visiting
+      - label: Tours & Visiting
+        name: visiting
+        widget: object
+        fields:
+          - { name: bar, label: Bar, widget: boolean }
+          - { name: tastings, label: Tastings, widget: boolean }
+          - { name: tours, label: Tours, widget: boolean }
+          - { name: tourPrice, label: Tour Price, widget: string }
+          - { name: tourDesc, label: Tour Description, widget: text }
+      
+      # Opening Hours
+      - label: Opening Hours
+        name: openingHours
+        widget: object
+        fields:
+          - { name: monOpen, label: Monday Open, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: monClose, label: Monday Close, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: tueOpen, label: Tuesday Open, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: tueClose, label: Tuesday Close, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: wedOpen, label: Wednesday Open, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: wedClose, label: Wednesday Close, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: thurOpen, label: Thursday Open, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: thurClose, label: Thursday Close, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: friOpen, label: Friday Open, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: friClose, label: Friday Close, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: satOpen, label: Saturday Open, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: satClose, label: Saturday Close, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: sunOpen, label: Sunday Open, widget: datetime, dateFormat: false, default: "", required: false }
+          - { name: sunClose, label: Sunday Close, widget: datetime, dateFormat: false, default: "", required: false }
+      
+      # Main Body Article
+      - { name: body, label: Body, widget: markdown, required: false  }
+
+
+
+
+  # SPIRITS
+  - name: spirits
+    label: Spirits
+    folder: spirits
+    create: true
+    fields:
+      - { name: path, label: Path, hint: "/spirits/<name-of-spirit>" }
+      - { name: published, label: Published, widget: boolean, default: false, hint: "When set to FALSE, the spirit wont be shown on the website."}
+      - { name: name, label: Name }
+      - { name: producer, label: Producer, widget: relation, collection: distilleries, searchFields: "name", valueField: "name"}
+
+      # Basic Info
+      - name: basicInfo
+        label: Basic Info
+        widget: object
+        fields:
+          - { name: catagory, label: Spirit Catagory, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other", ""], multiple: false }
+          - { name: productImage, label: Product Image, widget: image }
+          - { name: releaseDate, label: Release Date, widget: datetime, timeFormat: false, dateFormat: "LL", required: false }
+          - { name: rrp, label: RRP }
+      
+      # Main Body          
       - { name: body, label: Body, widget: markdown }
+
+
+
+
+  # Events
+  - name: events
+    label: Events
+    folder: events
+    create: true
+    fields:
+      - { name: path, label: Path, hint: "/events/<name-of-event>" }
+      - { name: published, label: Published, widget: boolean, default: false, hint: "When set to FALSE, the event wont be shown on the website."}
+      - { name: name, label: Name }
+      - { name: tags, label: Tags, widget: select, options: ["Tasting", "Trade Show", "Upcoming Release"], multiple: true, required: false }
+      - { name: start, label: Start Date, widget: datetime }
+      - { name: end, label: End Date, widget: datetime, required: false }
+      - { name: location, label: Location, widget: text }
+      - { name: mapLocation, label: Map Location, widget: map }
+      - { name: cost, label: Cost, widget: string }
+      - { name: bookingsRequired, label: Bookings Required, widget: boolean }
+      - { name: rsvpAddress, label: RSVP Address, required: false }
+      - { name: desc, label: Description, widget: markdown }
+
+
+
+
+  # News
+  - name: news
+    label: News
+    folder: news
+    create: true
+    fields:
+      - { name: path, label: Path, hint: "/news/<name-of-article>" }
+      - { name: published, label: Published, widget: boolean, default: false, hint: "When set to FALSE, the article wont be shown on the website."}
+      - { name: name, label: Name }
+      - { name: publishDate, label: Publish Date, widget: datetime, timeFormat: false, dateFormat: "LL" }
+      - { name: tags, label: Tags, widget: select, options: ["Tasting", "Trade Show", "Upcoming Release"], multiple: true, required: false }
+      - { name: author, label: Author }
+      - { name: body, label: Body, widget: markdown }
+
+
+
+  # COCKTAILS
+  - name: cocktails
+    label: Cocktails
+    folder: cocktails
+    create: true
+    fields:
+      - { name: name, label: Name }
+      - { name: path, label: Path, hint: "/cocktails/<cocktail-name>" }
+      - { name: creator, label: Creator, required: false }
+      - { name: firstPublished, label: First Published, required: false }
+
+      # Ingredients
+      - name: ingredients
+        label: Ingredients
+        widget: list
+        allow_add: true
+        fields:
+          - { name: ingredientName, label: Ingredient Name, default: "" }
+          - { name: ingredientQty, label: Ingredient Quantity, default: "" }
+          - name: ingredientUnit
+            label: Ingredient Unit
+            widget: select
+            options: ["ml", "dash", "", "unit"]
+            multiple: false
+            default: ""
+
+      # Method
+      - name: method
+        label: Method
+        widget: object
+        fields:
+          - { name: method, label: Method, widget: text }
+          - { name: glass, label: Glass }
+          - { name: garnish, label: Garnish }
+
+      # History
+      - { name: body, label: Body, widget: markdown, required: false }
+      

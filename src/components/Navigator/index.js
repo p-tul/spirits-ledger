@@ -13,7 +13,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import HomeIcon from '@material-ui/icons/Home'
 import PeopleIcon from '@material-ui/icons/People'
 import DnsRoundedIcon from '@material-ui/icons/DnsRounded'
-import PermMediaOutlinedIcon from '@material-ui/icons/PhotoSizeSelectActual'
+import LocalBar from '@material-ui/icons/LocalBar'
 import PublicIcon from '@material-ui/icons/Public'
 import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet'
 import SettingsInputComponentIcon from '@material-ui/icons/SettingsInputComponent'
@@ -23,22 +23,22 @@ import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup'
 import Logo from 'components/Logo'
 const categories = [
 	{
-		id: 'Develop',
+		id: 'Explore',
 		children: [
-			{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
-			{ id: 'Database', icon: <DnsRoundedIcon />, page: 'database' },
-			{ id: 'Storage', icon: <PermMediaOutlinedIcon />, page: 'storage' },
-			{ id: 'Hosting', icon: <PublicIcon />, page: 'hosting' },
-			{ id: 'Functions', icon: <SettingsEthernetIcon />, page: 'functions' },
-			{ id: 'ML Kit', icon: <SettingsInputComponentIcon />, page: 'ml' },
+			{ id: 'Distilleries', icon: <PeopleIcon />, page: 'distilleries' },
+			{ id: 'Spirits', icon: <DnsRoundedIcon />, page: 'spirits' },
+			{ id: 'Cocktails', icon: <LocalBar />, page: 'cocktails' },
+			{ id: 'News', icon: <PublicIcon />, page: 'news' },
+			{ id: 'Events', icon: <SettingsEthernetIcon />, page: 'events' },
+			// { id: 'ML Kit', icon: <SettingsInputComponentIcon />, page: 'ml' },
 		],
 	},
 	{
-		id: 'Quality',
+		id: 'Contact',
 		children: [
-			{ id: 'Analytics', icon: <SettingsIcon />, page: 'analytics' },
-			{ id: 'Performance', icon: <TimerIcon />, page: 'performance' },
-			{ id: 'Test Lab', icon: <PhonelinkSetupIcon />, page: 'lab' },
+			{ id: 'About', icon: <SettingsIcon />, page: 'about' },
+			{ id: 'Contact', icon: <TimerIcon />, page: 'contact' },
+			{ id: 'Producers', icon: <PhonelinkSetupIcon />, page: 'producers' },
 		],
 	},
 ]
@@ -94,12 +94,12 @@ function Navigator({ classes, location = null, ...rest }) {
 		<Drawer variant="permanent" {...rest}>
 			<List disablePadding>
 				<ListItem className={classNames(classes.firebase, classes.item, classes.itemCategory)}>
-					<Grid container alignItems="center" spacing={8} direction="row">
+					{/* <Grid container alignItems="center" spacing={8} direction="row">
 						<Grid item>
 							<Logo />
 						</Grid>
 						<Grid item>Paperbase</Grid>
-					</Grid>
+					</Grid> */}
 				</ListItem>
 
 				<Link style={{ textDecoration: 'none', color: 'inherit' }} to="/">
@@ -112,7 +112,7 @@ function Navigator({ classes, location = null, ...rest }) {
 								primary: classes.itemPrimary,
 							}}
 						>
-							Project Overview
+							Home
 						</ListItemText>
 					</ListItem>
 				</Link>
@@ -143,7 +143,7 @@ function Navigator({ classes, location = null, ...rest }) {
 											(matchPath && page ? matchPath === page : false) && classes.itemActiveItem
 										)}
 									>
-										<ListItemIcon>{icon}</ListItemIcon>
+										{/* <ListItemIcon>{icon}</ListItemIcon> */}
 										<ListItemText
 											classes={{
 												primary: classes.itemPrimary,

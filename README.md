@@ -1,33 +1,104 @@
-<h1 align="center">
-    Material UI Paperbase Starter for Gatsby 🔥
-</h1>
+# Spirits Ledger
+Australian Spirits Directory
 
-Create dashboards and administration tools in Gastby using [Material UI's](https://material-ui.com/) [Paperbase Premium Theme](https://github.com/mui-org/material-ui/tree/master/docs/src/pages/premium-themes/paperbase)
+---
 
-## 🚀 Quick start
+## Technology
 
-1.  **Create a Gatsby site.**
+- GatsbyJs
+    - image-sharp
+    - 
+- Netlify CMS
+    - Posts/News
+- Material-UI
+- Netlify
+- GitHub
 
-    Use the Gatsby CLI to create a new site, specifying the blog starter.
+GatsbyJS Site Builder
+    Connect to CMS for Blog/News posts
+    CMS for Distilleries
 
-    ```sh
-    # create a new Gatsby site using the Paperbase starter
-    gatsby new my-admin-tool-starter https://github.com/willcode4food/gatsby-starter-paperbase
-    ```
+---
 
-1.  **Start developing.**
+## Site Map
 
-    Navigate into your new site’s directory and start it up.
 
-    ```sh
-    cd my-admin-tool-starter/
-    gatsby develop
-    ```
 
-1.  **Open the source code and start editing!**
+- Home
+    - Showcase
+    - News
+    - Featured Distillery
+    - New Spirits
+    - Distillery Map Link
+    - Events
+- Distilleries
+    - List
+        - Sort
+            - Date Opened
+            - State
+            - A-Z
+            - Z-A
+        - Filter
+            - Search
+            - State
+            - Spirits Produced
+            - Opened/Closed
+            - Tours
+            - Bar
 
-    Your site is now running at `http://localhost:8000`!
+        - Distillery Details
+            - 
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+    - Map
+        - Responsive to list inputs
+        - Dashboard layout on Desktop
+        - Switchable windows on mobile
+- Spirits
+    - Categories
+        - Category Production Info & History
+        - Product List
+            - Sort
+                - Date Released
+                - A-Z
+                - Producer A-Z
+                - Price
+            - Filter
+                - Search
+                - Category
+                - Producer
+                - Price
+            - Product Details
+- News (Blog)
+    - New Releases
+    - New Openings
+    - Featured Distillery
+    - Events
+        - Tastings
+        - Upcoming Releases
+        - Trade Shows
+- About
+    - 
+- Producers
+    - Point of Contact
+    - Submitting Your Distillery
+    - Amending Details
+    - New Product Release
+- Contact
 
-    Open the `my-admin-tool-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+---
+
+## File Structure
+
+    .
+    ├── node_modules
+    ├── src
+    ├── .gitignore
+    ├── .prettierrc
+    ├── gatsby-browser.js
+    ├── gatsby-config.js
+    ├── gatsby-node.js
+    ├── gatsby-ssr.js
+    ├── LICENSE
+    ├── package-lock.json
+    ├── package.json
+    └── README.md

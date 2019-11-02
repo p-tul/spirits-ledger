@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from 'components/Layout'
-import AuthContent from 'components/AuthContent'
+import ContactContent from 'components/ContactContent'
 
-function AuthenticationPage({ location }) {
+function ContactPage({ location }) {
 	const pageTitle = location ? location.pathname.replace(/\//g, '') : ''
 	return (
 		<Layout location={location} title={pageTitle}>
-			<AuthContent />
+			<ContactContent />
 		</Layout>
 	)
 }
-AuthenticationPage.propTypes = {
+ContactPage.propTypes = {
 	location: PropTypes.object,
 }
-export default AuthenticationPage
+export default ContactPage

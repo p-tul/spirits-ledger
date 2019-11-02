@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
+
 import AppBar from '@material-ui/core/AppBar'
-import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import HelpIcon from '@material-ui/icons/Help'
@@ -13,6 +14,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Tooltip from '@material-ui/core/Tooltip'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
+import Logo from '../../assets/images/logo-main-white.png'
 
 const lightColor = 'rgba(255, 255, 255, 0.7)'
 
@@ -22,9 +24,6 @@ const styles = theme => ({
 	},
 	menuButton: {
 		marginLeft: -theme.spacing.unit,
-	},
-	iconButtonAvatar: {
-		padding: 4,
 	},
 	link: {
 		color: lightColor,
@@ -45,7 +44,7 @@ const styles = theme => ({
 function Header({ classes, onDrawerToggle, title }) {
 	return (
 		<>
-			<AppBar color="primary" position="sticky" elevation={0}>
+			<AppBar color="primary" position="sticky" elevation={2}>
 				<Toolbar>
 					<Grid container spacing={8} alignItems="center">
 						<Hidden smUp>
@@ -60,46 +59,16 @@ function Header({ classes, onDrawerToggle, title }) {
 								</IconButton>
 							</Grid>
 						</Hidden>
-						<Grid item xs />
-						<Grid item>
-							<Typography className={classes.link} component="a" href="#">
-								Go to docs
-							</Typography>
-						</Grid>
-						<Grid item>
-							<Tooltip title="Alerts • No alters">
-								<IconButton color="inherit">
-									<NotificationsIcon />
-								</IconButton>
-							</Tooltip>
-						</Grid>
-						<Grid item>
-							<IconButton color="inherit" className={classes.iconButtonAvatar}>
-								<Avatar className={classes.avatar} src="/images/avatar.jpg" />
-							</IconButton>
-						</Grid>
-					</Grid>
-				</Toolbar>
-			</AppBar>
-			<AppBar component="div" className={classes.secondaryBar} color="primary" position="static" elevation={0}>
-				<Toolbar>
-					<Grid container alignItems="center" spacing={8}>
-						<Grid item xs>
-							<Typography style={{ textTransform: 'capitalize' }} color="inherit" variant="h5">
+						{/* <Grid item xs /> */}
+						{/* <Grid item xs>
+							<Typography style={{ textTransform: 'capitalize' }} color="inherit" variant="h4">
 								{title}
 							</Typography>
-						</Grid>
-						<Grid item>
-							<Button className={classes.button} variant="outlined" color="inherit" size="small">
-								Web setup
-							</Button>
-						</Grid>
-						<Grid item>
-							<Tooltip title="Help">
-								<IconButton color="inherit">
-									<HelpIcon />
-								</IconButton>
-							</Tooltip>
+						</Grid> */}
+						<Grid item align="center" xs >
+							<Link to="/">
+								<img src={Logo} alt="Spirits Ledger Logo" style={{height: "100px"}} />
+							</Link>
 						</Grid>
 					</Grid>
 				</Toolbar>

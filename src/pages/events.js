@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from 'components/Layout'
-import DatabaseContent from 'components/DatabaseContent'
+import EventsContent from 'components/EventsContent'
 
-function DatabasePage({ location }) {
+function EventsPage({ location }) {
 	const pageTitle = location ? location.pathname.replace(/\//g, '') : ''
 	return (
 		<Layout location={location} title={pageTitle}>
-			<DatabaseContent />
+			<EventsContent />
 		</Layout>
 	)
 }
-DatabasePage.propTypes = {
+EventsPage.propTypes = {
 	location: PropTypes.object,
 }
-export default DatabasePage
+export default EventsPage

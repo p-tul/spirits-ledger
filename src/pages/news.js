@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from 'components/Layout'
-import Content from 'components/Content'
+import NewsContent from 'components/NewsContent'
 
-function MLPage({ location }) {
+function NewsPage({ location }) {
 	const pageTitle = location ? location.pathname.replace(/\//g, '') : ''
 	return (
 		<Layout location={location} title={pageTitle}>
-			<Content />
+			<NewsContent />
 		</Layout>
 	)
 }
-MLPage.propTypes = {
+NewsPage.propTypes = {
 	location: PropTypes.object,
 }
-export default MLPage
+export default NewsPage

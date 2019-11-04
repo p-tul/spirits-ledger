@@ -23,10 +23,28 @@ const styles = theme => ({
 	},
 	contentWrapper: {
 		margin: '40px 16px',
+		display: 'flex',
+		flexWrap: 'wrap-reverse'
 	},
 	container: {
 		padding: '48px 36px 0',
 	},
+	textField: {
+		width: "100%",
+	},
+	contactForm: {
+		flexGrow: '1',
+		display: 'flex',
+		flexDirection: 'column',
+		minWidth: '300px'
+	},
+	button: {
+		margin: '1rem 0'
+	},
+	typoWrapper: {
+		flexGrow: '1',
+		padding: '0 2rem'
+	}
 })
 function ContactContent({ classes }) {
 	return (
@@ -34,12 +52,64 @@ function ContactContent({ classes }) {
 			<div className={classes.container}>
 				<Paper className={classes.paper}>
 					<div className={classes.contentWrapper}>
-						<Typography variant="h1" align="center">
-							Contact
-						</Typography>
-						<Typography color="textSecondary" align="center">
-							No users for this project yet
-						</Typography>
+						<form
+							className={classes.contactForm}
+							data-netlify="true"
+							data-netlify-recaptcha="true"
+							method="POST"
+							name="contactForm"
+						>
+							<TextField
+								required
+								label="Name"
+								name="name"
+								className={classes.textField}
+								id="name"
+								margin="normal"
+								variant="outlined"
+							/>
+							<TextField
+								required
+								label="Email"
+								name="email"
+								className={classes.textField}
+								type="email"
+								id="email"
+								margin="normal"
+								variant="outlined"
+							/>
+							<TextField
+								label="Message"
+								id="message"
+								name="message"
+								multiline
+								rows="6"
+								className={classes.textField}
+								margin="normal"
+								variant="outlined"
+							/>
+							<div data-netlify-recaptcha="true"></div>
+							<Button
+								variant="contained"
+								color="primary"
+								className={classes.button}
+								margin="normal"
+								type="submit"
+							>
+								Submit
+							</Button>
+						</form>
+						<div className={classes.typoWrapper}>
+							<Typography variant="h1" align="center" gutterBottom>
+								Contact
+							</Typography>
+							<Typography variant="body1" align="center" gutterBottom>
+								kdwchk afhcak jfch aekjch akjch kah 
+							</Typography>
+							<Typography variant="body1" align="center" gutterBottom>
+								kdwchk afhcak jfch aekjch akjch kah 
+							</Typography>
+						</div>
 					</div>
 				</Paper>
 			</div>

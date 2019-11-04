@@ -1,32 +1,28 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Paper from '@material-ui/core/Paper'
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
-  return (
+
+export default ({ data }) => {
+  
+	return (
     <Layout>
-      <Paper>
-            <h1>{frontmatter.name}</h1>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-      </Paper>
+      <div>
+        <h1>Happy Birthday</h1>
+        <div>Hey</div>
+      </div>
     </Layout>
-  )
+	)
 }
 
-export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-          name
-          
-      }
-    }
-  }
+export const distilleryQuery = graphql`
+	query($path: String!) {
+		markdownRemark(frontmatter: { path: { eq: $path } }) {
+			frontmatter {
+				name
+			}
+		}
+	}
 `

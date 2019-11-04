@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link, graphql, staticQuery} from 'gatsby'
+import DistilleryList from '../DistilleryList'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
@@ -28,7 +30,7 @@ const styles = theme => ({
 		padding: '48px 36px 0',
 	},
 })
-function DistilleriesContent({ classes }) {
+function DistilleriesContent({ classes, data }) {
 	return (
 		<>
 			<div className={classes.container}>
@@ -37,9 +39,7 @@ function DistilleriesContent({ classes }) {
 						<Typography variant="h1" align="center">
 							Distilleries
 						</Typography>
-						<Typography color="textSecondary" align="center">
-							No users for this project yet
-						</Typography>
+						<DistilleryList />
 					</div>
 				</Paper>
 			</div>
@@ -50,5 +50,6 @@ function DistilleriesContent({ classes }) {
 DistilleriesContent.propTypes = {
 	classes: PropTypes.object.isRequired,
 }
+
 
 export default withStyles(styles)(DistilleriesContent)

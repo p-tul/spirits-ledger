@@ -35,11 +35,9 @@ function HomeContent({ classes }) {
 				<Paper className={classes.paper}>
 					<div className={classes.contentWrapper}>
 						<Typography variant="h1" align="center">
-							Home
+							Home Page
 						</Typography>
-						<Typography color="textSecondary" align="center">
-							No users for this project yet
-						</Typography>
+						
 					</div>
 				</Paper>
 			</div>

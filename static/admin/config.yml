@@ -24,7 +24,8 @@ collections:
           - { name: logo, label: Logo, widget: image, allow_multiple: false, required: false}
           - { name: featuredImage, label: Featured Image, widget: image, allow_multiple: false, required: false }
           # - { name: products, label: Products, widget: relation, required: false }
-          - { name: spiritCatagories, label: Spirit Catagories, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other"], multiple: true, required: false }
+          - { name: labels, label: Labels, widget: list, field: { name: label, Label: Label, widget: string }}
+          - { name: spiritCatagories, label: Spirit Catagories, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other"], multiple: true, required: true }
           - { name: dateFounded, label: Date Founded, widget: datetime, default: "", dateFormat: "MM, YYYY", timeFormat: false, required: false }
           - { name: owner, label: Owner, required: false }
           - { name: headDistiller, label: Head Distiller, required: false }

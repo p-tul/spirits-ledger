@@ -4,6 +4,9 @@ published: true
 name: Distillery Two
 basicInfo:
   dateFounded: 2017-12-31T18:30:00.000Z
+  labels:
+    - Starward
+    - New World Projects
 contact:
   state: SA
 visiting:

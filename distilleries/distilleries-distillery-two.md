@@ -10,7 +10,7 @@ basicInfo:
 contact:
   state: SA
 visiting:
-  bar: true
+  bar: false
   tastings: true
   tourDesc: fsvsv
   tourPrice: Free

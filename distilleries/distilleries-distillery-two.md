@@ -7,6 +7,9 @@ basicInfo:
   labels:
     - Starward
     - New World Projects
+  spiritCatagories:
+    - Gin
+    - Brandy
 contact:
   state: SA
 visiting:

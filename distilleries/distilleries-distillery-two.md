@@ -3,7 +3,7 @@ path: /distilleries/distillery-two
 published: true
 name: Distillery Two
 basicInfo:
-  dateFounded: ''
+  dateFounded: 2017-12-31T18:30:00.000Z
 contact:
   state: SA
 visiting:

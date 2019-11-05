@@ -29,7 +29,7 @@ export default () => (
 								name
 								basicInfo {
 									spiritCatagories
-									dateFounded(formatString: "MMM, YYYY")
+									dateFounded
                                     status
                                     labels
 								}

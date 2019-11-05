@@ -13,7 +13,6 @@ collections:
     folder: distilleries
     create: true
     fields:
-      - { name: published, label: Published, widget: boolean, default: false, hint: "When set to FALSE, the distillery wont be shown on the website."}
       - { name: name, label: Name }
 
       # Basic Info
@@ -21,7 +20,7 @@ collections:
         name: basicInfo
         widget: object
         fields:
-          - { name: logo, label: Logo, widget: image, allow_multiple: false, required: false}
+          - { name: logo, label: Logo, widget: image, allow_multiple: false, required: false, default: ""}
           - { name: featuredImage, label: Featured Image, widget: image, allow_multiple: false, required: false }
           - { name: labels, label: Labels, widget: list, field: { name: label, label: Label, widget: string }}
           - { name: spiritCatagories, label: Spirit Catagories, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other"], multiple: true, required: true }
@@ -88,7 +87,6 @@ collections:
     folder: spirits
     create: true
     fields:
-      - { name: published, label: Published, widget: boolean, default: false, hint: "When set to FALSE, the spirit wont be shown on the website."}
       - { name: name, label: Name }
       - { name: producer, label: Producer, widget: relation, collection: distilleries, searchFields: "name", valueField: "name"}
 
@@ -114,7 +112,6 @@ collections:
     folder: events
     create: true
     fields:
-      - { name: published, label: Published, widget: boolean, default: false, hint: "When set to FALSE, the event wont be shown on the website."}
       - { name: name, label: Name }
       - { name: tags, label: Tags, widget: select, options: ["Tasting", "Trade Show", "Upcoming Release"], multiple: true, required: false }
       - { name: start, label: Start Date, widget: datetime }
@@ -135,7 +132,6 @@ collections:
     folder: news
     create: true
     fields:
-      - { name: published, label: Published, widget: boolean, default: false, hint: "When set to FALSE, the article wont be shown on the website."}
       - { name: name, label: Name }
       - { name: publishDate, label: Publish Date, widget: datetime, timeFormat: false, dateFormat: "LL" }
       - { name: tags, label: Tags, widget: select, options: ["Tasting", "Trade Show", "Upcoming Release"], multiple: true, required: false }
@@ -153,7 +149,7 @@ collections:
       - { name: name, label: Name }
       - { name: creator, label: Creator, required: false }
       - { name: firstPublished, label: First Published, required: false }
-      # - { name: image, label: Image, widget: image, multiple: false }
+      - { name: image, label: Image, widget: image, multiple: false }
 
       # Ingredients
       - name: ingredients

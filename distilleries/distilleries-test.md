@@ -1,8 +1,8 @@
 ---
-# path: /distilleries/distillery-one
 published: false
 name: Distillery One
 basicInfo:
+  logo: ''
   dateFounded: 2019-11-02T13:33:07.791Z
   headDistiller: Mrs Distiller
   owner: Mr Owner

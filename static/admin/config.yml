@@ -3,12 +3,13 @@ backend:
   repo: p-tul/spirits-ledger
 media_folder: static/assets
 public_folder: assets
+publish_mode: editorial_workflow
 collections:
 
-
   # DISTILLERIES
-  - name: distilleries
-    label: Distilleries
+  - label: Distilleries
+    name: distilleries
+    identifier_field: name
     folder: distilleries
     create: true
     fields:
@@ -20,10 +21,9 @@ collections:
         name: basicInfo
         widget: object
         fields:
-          - { name: logo, label: Logo, widget: image, allow_multiple: false, required: false, default: ""}
-          - { name: featuredImage, label: Featured Image, widget: image, allow_multiple: false, required: false, default: "" }
-          # - { name: products, label: Products, widget: relation, required: false }
-          - { name: labels, label: Labels, widget: list, field: { name: label, Label: Label, widget: string }}
+          - { name: logo, label: Logo, widget: image, allow_multiple: false, required: false}
+          - { name: featuredImage, label: Featured Image, widget: image, allow_multiple: false, required: false }
+          - { name: labels, label: Labels, widget: list, field: { name: label, label: Label, widget: string }}
           - { name: spiritCatagories, label: Spirit Catagories, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other"], multiple: true, required: true }
           - { name: dateFounded, label: Date Founded, widget: datetime, default: "", dateFormat: "MM, YYYY", timeFormat: false, required: false }
           - { name: owner, label: Owner, required: false }
@@ -38,12 +38,10 @@ collections:
           - { name: phone, label: Phone Number, required: false }
           - { name: websiteURL, label: Website URL, required: false }
           - { name: email, label: Email Address, required: false }
-          # - { name: address, label: Address, widget: text, required: false }
           - { name: streetAddress, label: Street Address, required: false }
           - { name: suburb, label: Suburb, required: false }
           - { name: postCode, label: Post Code, required: false }
           - { name: state, label: State, widget: select, options: ["ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA"], required: true }
-          # - { name: country, label: Country, required: false }
           - { name: mapLocation, label: Map Location, widget: map, required: false }
 
       # Tours & Visiting
@@ -86,10 +84,10 @@ collections:
   # SPIRITS
   - name: spirits
     label: Spirits
+    identifier_field: name
     folder: spirits
     create: true
     fields:
-      - { name: path, label: Path, hint: "/spirits/<name-of-spirit>" }
       - { name: published, label: Published, widget: boolean, default: false, hint: "When set to FALSE, the spirit wont be shown on the website."}
       - { name: name, label: Name }
       - { name: producer, label: Producer, widget: relation, collection: distilleries, searchFields: "name", valueField: "name"}
@@ -116,7 +114,6 @@ collections:
     folder: events
     create: true
     fields:
-      - { name: path, label: Path, hint: "/events/<name-of-event>" }
       - { name: published, label: Published, widget: boolean, default: false, hint: "When set to FALSE, the event wont be shown on the website."}
       - { name: name, label: Name }
       - { name: tags, label: Tags, widget: select, options: ["Tasting", "Trade Show", "Upcoming Release"], multiple: true, required: false }
@@ -138,7 +135,6 @@ collections:
     folder: news
     create: true
     fields:
-      - { name: path, label: Path, hint: "/news/<name-of-article>" }
       - { name: published, label: Published, widget: boolean, default: false, hint: "When set to FALSE, the article wont be shown on the website."}
       - { name: name, label: Name }
       - { name: publishDate, label: Publish Date, widget: datetime, timeFormat: false, dateFormat: "LL" }
@@ -155,10 +151,9 @@ collections:
     create: true
     fields:
       - { name: name, label: Name }
-      - { name: path, label: Path, hint: "/cocktails/<cocktail-name>" }
       - { name: creator, label: Creator, required: false }
       - { name: firstPublished, label: First Published, required: false }
-      - { name: image, lavel: Image, widget: image, multiple: false }
+      # - { name: image, label: Image, widget: image, multiple: false }
 
       # Ingredients
       - name: ingredients

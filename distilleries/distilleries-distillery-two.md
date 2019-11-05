@@ -1,8 +1,8 @@
 ---
-# path: /distilleries/distillery-two
 published: true
 name: Distillery Two
 basicInfo:
+  logo: ''
   dateFounded: 2017-12-31T18:30:00.000Z
   labels:
     - Starward

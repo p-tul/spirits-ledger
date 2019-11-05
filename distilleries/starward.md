@@ -3,6 +3,7 @@ name: Starward
 basicInfo:
   dateFounded: ''
   featuredImage: /assets/screen_3x.jpg
+  headDistiller: No one
   labels:
     - Starward
     - New World Projects

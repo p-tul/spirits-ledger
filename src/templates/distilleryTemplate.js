@@ -44,9 +44,12 @@ const styles = theme => ({
 						{ item.frontmatter.basicInfo.featuredImage !== null ? <img src={item.frontmatter.basicInfo.featuredImage} /> : null}
 						
 						{/* Labels */}
-						<Typography variant="body2">
-							Labels: {item.frontmatter.basicInfo.labels.map((item) => { return <span>{item}, </span> })}
-						</Typography>
+						{item.frontmatter.basicInfo.labels !== null ? 
+							<Typography variant="body2">
+								Labels: {item.frontmatter.basicInfo.labels.map((item) => { return <span>{item}, </span> })}
+							</Typography>
+							: null
+						}
 
 						{/* Spirit Categories */}
 						<Typography variant="body2" >
@@ -60,7 +63,7 @@ const styles = theme => ({
 						{item.frontmatter.basicInfo.owner !== "" ? <Typography variant="body2" >{item.frontmatter.basicInfo.owner}</Typography> : null}
 
 						{/* Head Distiller */}
-
+						{item.frontmatter.basicInfo.headDistiller !== "" ? <Typography variant="body2" >{item.frontmatter.basicInfo.headDistiller}</Typography> : null}
 
 						
 						{/* Status */}
@@ -94,6 +97,7 @@ export const distilleryQuery = graphql`
 					spiritCategories
 					dateFounded
 					owner
+					headDistiller
 					status
 					
 				}

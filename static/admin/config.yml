@@ -21,7 +21,7 @@ collections:
         widget: object
         fields:
           - { name: logo, label: Logo, widget: image, allow_multiple: false, required: false, default: ""}
-          - { name: featuredImage, label: Featured Image, widget: image, allow_multiple: false, required: false }
+          - { name: featuredImage, label: Featured Image, widget: image, allow_multiple: false, required: false, default: "" }
           - { name: labels, label: Labels, widget: list, field: { name: label, label: Label, widget: string }}
           - { name: spiritCatagories, label: Spirit Catagories, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other"], multiple: true, required: true }
           - { name: dateFounded, label: Date Founded, widget: datetime, default: "", dateFormat: "MM, YYYY", timeFormat: false, required: false }

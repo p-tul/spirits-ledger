@@ -3,6 +3,7 @@ name: Archie Rose
 basicInfo:
   dateFounded: ''
   featuredImage: /assets/screen_3x.jpg
+  headDistiller: Me
   logo: /assets/starward-wine-cask.jpg
   owner: ''
   spiritCategories:

@@ -21,11 +21,11 @@ collections:
         widget: object
         fields:
           - { name: logo, label: Logo, widget: image, allow_multiple: false, required: false, default: ""}
-          - { name: featuredImage, label: Featured Image, widget: image, allow_multiple: false, required: false, default: "" }
+          - { name: featuredImage, label: Featured Image, widget: image, allow_multiple: false, required: false, default: /assets/screen_3x.jpg }
           - { name: labels, label: Labels, widget: list, field: { name: label, label: Label, widget: string }}
-          - { name: spiritCatagories, label: Spirit Catagories, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other"], multiple: true, required: true }
+          - { name: spiritCategories, label: Spirit Categories, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other"], multiple: true, required: true }
           - { name: dateFounded, label: Date Founded, widget: datetime, default: "", dateFormat: "MM, YYYY", timeFormat: false, required: false }
-          - { name: owner, label: Owner, required: false }
+          - { name: owner, label: Owner, widget: string, required: false }
           - { name: headDistiller, label: Head Distiller, required: false }
           - { name: status, label: Status, widget: select, options: [{label: Open, value: open}, {label: Closed, value: closed}, {label: Under Construction, value: underConstruction}], hint: "Open, Closed or Under Construction" }
       
@@ -95,7 +95,7 @@ collections:
         label: Basic Info
         widget: object
         fields:
-          - { name: catagory, label: Spirit Catagory, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other", ""], multiple: false }
+          - { name: category, label: Spirit Category, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other", ""], multiple: false }
           - { name: productImage, label: Product Image, widget: image }
           - { name: releaseDate, label: Release Date, widget: datetime, timeFormat: false, dateFormat: "LL", required: false }
           - { name: rrp, label: RRP }

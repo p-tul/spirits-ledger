@@ -3,7 +3,7 @@ backend:
   repo: p-tul/spirits-ledger
 media_folder: static/assets
 public_folder: assets
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 collections:
 
   # DISTILLERIES
@@ -22,7 +22,7 @@ collections:
         fields:
           - { name: logo, label: Logo, widget: image, allow_multiple: false, required: false, default: ""}
           - { name: featuredImage, label: Featured Image, widget: image, allow_multiple: false, required: false }
-          - { name: labels, label: Labels, widget: list, field: { name: label, label: Label, widget: string }}
+          - { name: labels, label: Labels, widget: list, field: { name: label, label: Label, widget: string }, default: [""]}
           - { name: spiritCatagories, label: Spirit Catagories, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other"], multiple: true, required: true }
           - { name: dateFounded, label: Date Founded, widget: datetime, default: "", dateFormat: "MM, YYYY", timeFormat: false, required: false }
           - { name: owner, label: Owner, required: false }
@@ -48,10 +48,10 @@ collections:
         name: visiting
         widget: object
         fields:
-          - { name: bar, label: Bar, widget: boolean }
-          - { name: tastings, label: Tastings, widget: boolean }
-          - { name: tours, label: Tours, widget: boolean }
-          - { name: tourPrice, label: Tour Price, widget: string }
+          - { name: bar, label: Bar, widget: boolean, default: false }
+          - { name: tastings, label: Tastings, widget: boolean, default: false }
+          - { name: tours, label: Tours, widget: boolean, default: false }
+          - { name: tourPrice, label: Tour Price, widget: string, required: false, default: "" }
           - { name: tourDesc, label: Tour Description, widget: text }
       
       # Opening Hours

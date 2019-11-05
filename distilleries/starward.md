@@ -2,6 +2,7 @@
 name: Starward
 basicInfo:
   dateFounded: ''
+  featuredImage: /assets/screen_3x.jpg
   labels:
     - Starward
     - New World Projects

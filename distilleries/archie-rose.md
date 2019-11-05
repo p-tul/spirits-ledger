@@ -1,22 +1,18 @@
 ---
 published: true
-name: Distillery Two
+name: Archie Rose
 basicInfo:
-  logo: ''
-  dateFounded: 2017-12-31T18:30:00.000Z
-  labels:
-    - Starward
-    - New World Projects
+  dateFounded: ''
   spiritCatagories:
+    - Vodka
     - Gin
-    - Brandy
 contact:
-  state: SA
+  state: NSW
 visiting:
-  bar: false
+  bar: true
   tastings: true
-  tourDesc: fsvsv
-  tourPrice: Free
+  tourDesc: 1hr
+  tourPrice: '35'
   tours: true
 openingHours:
   friClose: ''

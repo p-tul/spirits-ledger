@@ -26,7 +26,7 @@ collections:
           - { name: spiritCategories, label: Spirit Categories, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other"], multiple: true, required: true }
           - { name: dateFounded, label: Date Founded, widget: datetime, default: "", dateFormat: "MM, YYYY", timeFormat: false, required: false }
           - { name: owner, label: Owner, widget: string, required: false, default: "" }
-          - { name: headDistiller, label: Head Distiller, required: false }
+          - { name: headDistiller, label: Head Distiller, widget: string, required: false, default: "" }
           - { name: status, label: Status, widget: select, options: [{label: Open, value: open}, {label: Closed, value: closed}, {label: Under Construction, value: underConstruction}], hint: "Open, Closed or Under Construction" }
       
       # Contact

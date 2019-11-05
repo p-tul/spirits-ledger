@@ -28,7 +28,7 @@ export default () => (
 								
 								name
 								basicInfo {
-									spiritCatagories
+									spiritCategories
 									dateFounded
                                     status
                                     labels
@@ -60,7 +60,7 @@ function DistilleryListData(data) {
                     <Grid container spacing={3}>
                         <Grid item>
                             <ListItemAvatar>
-                                <Avatar alt="Remy Sharp">
+                                <Avatar alt="Placeholder">
                                     <LocalBarIcon />
                                 </Avatar>
                             </ListItemAvatar>
@@ -75,7 +75,7 @@ function DistilleryListData(data) {
                                             Founded: {item.node.frontmatter.basicInfo.dateFounded}
                                         </Typography>
                                         <Typography component="span" variant="body2">
-                                            Categories: {item.node.frontmatter.basicInfo.spiritCatagories.map((item) => { return <span>{item}, </span>})}
+                                            Categories: {item.node.frontmatter.basicInfo.spiritCategories.map((item) => { return <span>{item}, </span>})}
                                             
                                         </Typography>
                                         <Typography component="span" variant="body2">

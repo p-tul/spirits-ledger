@@ -29,18 +29,48 @@ const styles = theme => ({
 })
 
  function DistilleryTemplate({ classes, data }) {
-  
+	const item = data.markdownRemark
 	 
 	return (
 		<Layout>
 			<div className={classes.container}>
 				<Paper className={classes.paper}>
 					<div className={classes.contentWrapper}>
-						{ data.markdownRemark.frontmatter.basicInfo.logo !== "" ? <img src={data.markdownRemark.frontmatter.basicInfo.logo}/> : <Typography variant="h1" align="center">{data.markdownRemark.frontmatter.name}</Typography> }
-						<Typography variant="h6" className={classes.uppercase}>
-							{data.markdownRemark.frontmatter.basicInfo.status}
+						
+						{/* Logo */}
+						{ item.frontmatter.basicInfo.logo !== "" ? <img src={data.markdownRemark.frontmatter.basicInfo.logo}/> : <Typography variant="h1" align="center">{data.markdownRemark.frontmatter.name}</Typography> }
+						
+						{/* Featured Image */}
+						{ item.frontmatter.basicInfo.featuredImage !== null ? <img src={item.frontmatter.basicInfo.featuredImage} /> : null}
+						
+						{/* Labels */}
+						<Typography variant="body2">
+							Labels: {item.frontmatter.basicInfo.labels.map((item) => { return <span>{item}, </span> })}
 						</Typography>
-						<div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+
+						{/* Spirit Categories */}
+						<Typography variant="body2" >
+							{ item.frontmatter.basicInfo.spiritCategories.map((item) => { return <span>{item}, </span> })}
+						</Typography>
+
+						{/* Date Founded */}
+						{item.frontmatter.basicInfo.dateFounded !== "" ? <Typography variant="body2" >{item.frontmatter.basicInfo.dateFounded}</Typography> : null}
+
+						{/* Owner */}
+						{item.frontmatter.basicInfo.owner !== "" ? <Typography variant="body2" >{item.frontmatter.basicInfo.owner}</Typography> : null}
+
+						{/* Head Distiller */}
+
+
+						
+						{/* Status */}
+						<Typography variant="h6" className={classes.uppercase}>
+							{item.frontmatter.basicInfo.status}
+						</Typography>
+
+						
+
+						<div dangerouslySetInnerHTML={{ __html: item.html }} />
 					</div>
 				</Paper>
 			</div>
@@ -59,7 +89,13 @@ export const distilleryQuery = graphql`
 				name
 				basicInfo {
 					logo
+					featuredImage
+					labels
+					spiritCategories
+					dateFounded
+					owner
 					status
+					
 				}
 			}
 			html

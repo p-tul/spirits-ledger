@@ -7,9 +7,10 @@ basicInfo:
     - Starward
     - New World Projects
   logo: /assets/starward-wine-cask.jpg
-  spiritCatagories:
-    - Gin
-    - Whisky
+  spiritCategories:
+    - Vodka
+    - Rum
+    - Brandy
   status: open
 contact:
   state: VIC

@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 
 
 import Layout from '../components/Layout'
@@ -22,6 +23,9 @@ const styles = theme => ({
 	container: {
 		padding: '48px 36px 0',
 	},
+	uppercase: {
+		textTransform: 'uppercase',
+	}
 })
 
  function DistilleryTemplate({ classes, data }) {
@@ -32,7 +36,10 @@ const styles = theme => ({
 			<div className={classes.container}>
 				<Paper className={classes.paper}>
 					<div className={classes.contentWrapper}>
-						<h1>{data.markdownRemark.frontmatter.name}</h1>
+						{ data.markdownRemark.frontmatter.basicInfo.logo !== "" ? <img src={data.markdownRemark.frontmatter.basicInfo.logo}/> : <Typography variant="h1" align="center">{data.markdownRemark.frontmatter.name}</Typography> }
+						<Typography variant="h6" className={classes.uppercase}>
+							{data.markdownRemark.frontmatter.basicInfo.status}
+						</Typography>
 						<div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
 					</div>
 				</Paper>
@@ -52,46 +59,7 @@ export const distilleryQuery = graphql`
 				name
 				basicInfo {
 					logo
-					featuredImage
-					labels
-					spiritsCatagories
-					dateFounded
-					owner
-					headDistiller
 					status
-				}
-				contact {
-					phone
-					websiteURL
-					email
-					streetAddress
-					suburb
-					postCode
-					state
-					mapLocation
-				}
-				visiting {
-					bar
-					tastings
-					tours
-					tourPrice
-					tourDesc
-				}
-				openingHours {
-					monOpen
-					monClose
-					tueOpen
-					tueClose
-					wedOpen
-					wedClose
-					thurOpen
-					thurClose
-					friOpen
-					friClose
-					satOpen
-					satClose
-					sunOpen
-					sunClose
 				}
 			}
 			html

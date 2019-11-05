@@ -27,7 +27,7 @@ collections:
           - { name: dateFounded, label: Date Founded, widget: datetime, default: "", dateFormat: "MM, YYYY", timeFormat: false, required: false }
           - { name: owner, label: Owner, required: false }
           - { name: headDistiller, label: Head Distiller, required: false }
-          - { name: status, label: Status, widget: select, options: [{label: Open, value: open}, {label: Closed, value: closed}, {label: Under Construction, value: underConstruction}], hint: "Open, Closed or Under Construction", required: false }
+          - { name: status, label: Status, widget: select, options: [{label: Open, value: open}, {label: Closed, value: closed}, {label: Under Construction, value: underConstruction}], hint: "Open, Closed or Under Construction" }
       
       # Contact
       - label: Contact

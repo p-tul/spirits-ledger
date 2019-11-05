@@ -17,12 +17,15 @@ export default () => (
 	<StaticQuery
 		query={graphql`
 			query DistilleryQuery {
-				allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/(distilleries)/" } }) {
+				allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/(distilleries)/" } }, sort: {fields: frontmatter___name, order: ASC}) {
 					edges {
 						node {
-							id
+                            id
+                            fields {
+                                slug
+                            }
 							frontmatter {
-								path
+								
 								name
 								basicInfo {
 									spiritCatagories
@@ -53,7 +56,7 @@ function DistilleryListData(data) {
     data.allMarkdownRemark.edges.forEach(item =>
 		distilleriesArray.push(
 			<>
-				<ListItem button component={Link} to={item.node.frontmatter.path} key={item.node.id}>
+				<ListItem button component={Link} to={item.node.fields.slug} key={item.node.id}>
                     <Grid container spacing={3}>
                         <Grid item>
                             <ListItemAvatar>

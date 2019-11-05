@@ -12,7 +12,6 @@ collections:
     folder: distilleries
     create: true
     fields:
-      - { name: path, label: Path, hint: "/distilleries/<name-of-distillery>" }
       - { name: published, label: Published, widget: boolean, default: false, hint: "When set to FALSE, the distillery wont be shown on the website."}
       - { name: name, label: Name }
 
@@ -21,8 +20,8 @@ collections:
         name: basicInfo
         widget: object
         fields:
-          - { name: logo, label: Logo, widget: image, allow_multiple: false, required: false}
-          - { name: featuredImage, label: Featured Image, widget: image, allow_multiple: false, required: false }
+          - { name: logo, label: Logo, widget: image, allow_multiple: false, required: false, default: ""}
+          - { name: featuredImage, label: Featured Image, widget: image, allow_multiple: false, required: false, default: "" }
           # - { name: products, label: Products, widget: relation, required: false }
           - { name: labels, label: Labels, widget: list, field: { name: label, Label: Label, widget: string }}
           - { name: spiritCatagories, label: Spirit Catagories, widget: select, options: ["Vodka", "Gin", "Rum", "Whisky", "Brandy", "Liqueur", "Other"], multiple: true, required: true }
@@ -159,6 +158,7 @@ collections:
       - { name: path, label: Path, hint: "/cocktails/<cocktail-name>" }
       - { name: creator, label: Creator, required: false }
       - { name: firstPublished, label: First Published, required: false }
+      - { name: image, lavel: Image, widget: image, multiple: false }
 
       # Ingredients
       - name: ingredients

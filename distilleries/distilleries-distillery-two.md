@@ -1,5 +1,5 @@
 ---
-path: /distilleries/distillery-two
+# path: /distilleries/distillery-two
 published: true
 name: Distillery Two
 basicInfo:

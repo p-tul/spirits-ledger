@@ -10,6 +10,8 @@ import Avatar from '@material-ui/core/Avatar'
 import Typography from '@material-ui/core/Typography'
 import LocalBarIcon from '@material-ui/icons/LocalBar'
 import Grid from '@material-ui/core/Grid'
+import Chip from '@material-ui/core/Chip'
+
 
 
 export default () => (
@@ -70,18 +72,22 @@ function DistilleryListData(data) {
                                 primary={item.node.frontmatter.name}
                                 secondary={
                                     <>
-                                        {item.node.frontmatter.basicInfo.labels !== null ? <Typography>Labels: {item.node.frontmatter.basicInfo.labels.map((item) => { return <span>{item}, </span> })}</Typography> : null}
-                                        <Typography component="span" variant="body2">
+                                        {/* Labels */}
+                                        {item.node.frontmatter.basicInfo.labels !== null ? <Typography variant="caption">Labels: {item.node.frontmatter.basicInfo.labels.map((item) => { return <span>{item}, </span> })}</Typography> : null}
+                                        {/* Date Founded */}
+                                        <Typography component="span" variant="caption">
                                             Founded: {item.node.frontmatter.basicInfo.dateFounded}
                                         </Typography>
-                                        <Typography component="span" variant="body2">
-                                            Categories: {item.node.frontmatter.basicInfo.spiritCategories.map((item) => { return <span>{item}, </span>})}
-                                            
+                                        {/* Spirit Categories */}
+                                        <Typography component="span" variant="caption">
+                                            {item.node.frontmatter.basicInfo.spiritCategories.map((item) => { return <Chip size="small" label={item} color="primary" clickable="false" />})}
                                         </Typography>
-                                        <Typography component="span" variant="body2">
+                                        {/* State */}
+                                        <Typography component="span" variant="caption">
                                             State: {item.node.frontmatter.contact.state}
                                         </Typography>
-                                        <Typography component="span" variant="body2">
+                                        {/* Status */}
+                                        <Typography component="span" variant="caption">
                                             {item.node.frontmatter.basicInfo.status}
                                         </Typography>
                                     </>
@@ -89,9 +95,9 @@ function DistilleryListData(data) {
                             />
                         </Grid>
                         <Grid item >
-                            {item.node.frontmatter.visiting.bar == true ? <Typography comonent="span" variant="body2">Bar on Site</Typography> : null}
-                            {item.node.frontmatter.visiting.tours == true ? <Typography comonent="span" variant="body2">Tours Available</Typography> : null}
-                            {item.node.frontmatter.visiting.tastings == true ? <Typography comonent="span" variant="body2">Tastings Available</Typography> : null}
+                            {item.node.frontmatter.visiting.bar == true ? <Typography comonent="span" variant="caption">Bar on Site</Typography> : null}
+                            {item.node.frontmatter.visiting.tours == true ? <Typography comonent="span" variant="caption">Tours Available</Typography> : null}
+                            {item.node.frontmatter.visiting.tastings == true ? <Typography comonent="span" variant="caption">Tastings Available</Typography> : null}
                         </Grid>
                     </Grid>
 				</ListItem>

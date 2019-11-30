@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import Chip from '@material-ui/core/Chip'
 
 
 import Layout from '../components/Layout'
@@ -41,19 +42,19 @@ const styles = theme => ({
 						{ item.frontmatter.basicInfo.logo !== "" ? <img src={data.markdownRemark.frontmatter.basicInfo.logo}/> : <Typography variant="h1" align="center">{data.markdownRemark.frontmatter.name}</Typography> }
 						
 						{/* Featured Image */}
-						{ item.frontmatter.basicInfo.featuredImage !== null ? <img src={item.frontmatter.basicInfo.featuredImage} /> : null}
+						{ item.frontmatter.basicInfo.featuredImage !== null ? <img src={item.frontmatter.basicInfo.featuredImage} style={{width: '100%'}} /> : null}
 						
 						{/* Labels */}
 						{item.frontmatter.basicInfo.labels !== null ? 
 							<Typography variant="body2">
-								Labels: {item.frontmatter.basicInfo.labels.map((item) => { return <span>{item}, </span> })}
+								Labels: {item.frontmatter.basicInfo.labels.map((item) => { return <span>{item} </span> })}
 							</Typography>
 							: null
 						}
 
 						{/* Spirit Categories */}
 						<Typography variant="body2" >
-							{ item.frontmatter.basicInfo.spiritCategories.map((item) => { return <span>{item}, </span> })}
+							{ item.frontmatter.basicInfo.spiritCategories.map((item) => { return <Chip label={item} color="primary" /> })}
 						</Typography>
 
 						{/* Date Founded */}
@@ -65,7 +66,6 @@ const styles = theme => ({
 						{/* Head Distiller */}
 						{item.frontmatter.basicInfo.headDistiller !== "" ? <Typography variant="body2" >{item.frontmatter.basicInfo.headDistiller}</Typography> : null}
 
-						
 						{/* Status */}
 						<Typography variant="h6" className={classes.uppercase}>
 							{item.frontmatter.basicInfo.status}

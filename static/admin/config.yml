@@ -34,12 +34,12 @@ collections:
         name: contact
         widget: object
         fields:
-          - { name: phone, label: Phone Number, required: false }
-          - { name: websiteURL, label: Website URL, required: false }
-          - { name: email, label: Email Address, required: false }
-          - { name: streetAddress, label: Street Address, required: false }
-          - { name: suburb, label: Suburb, required: false }
-          - { name: postCode, label: Post Code, required: false }
+          - { name: phone, label: Phone Number, widget: string, required: false }
+          - { name: websiteURL, label: Website URL, widget: string, required: false }
+          - { name: email, label: Email Address, widget: string, required: false }
+          - { name: streetAddress, label: Street Address, widget: string, required: false }
+          - { name: suburb, label: Suburb, widget: string, required: false }
+          - { name: postCode, label: Post Code, widget: string, required: false }
           - { name: state, label: State, widget: select, options: ["ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA"], required: true }
           - { name: mapLocation, label: Map Location, widget: map, required: false }
 
